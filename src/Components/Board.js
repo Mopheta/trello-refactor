@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import CreatePipeline from './CreatePipeline'
 import Pipeline from './Pipeline'
 
+
+//Styles
+import '../Styles/Board.css'
+
 export default class Board extends Component {
     constructor(props){
         super(props);
@@ -31,7 +35,7 @@ export default class Board extends Component {
                 <div>
                     <CreatePipeline addPipeline={ this.addNewPipeline } />
                 </div>
-                <div>
+                <div className="flex-container">
                     {
                         pipelines.map(p => <Pipeline  addTaskToPipeline={this.addTaskToPipeline} pipeline={p}/>)
                     }

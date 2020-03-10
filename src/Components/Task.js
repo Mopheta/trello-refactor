@@ -7,31 +7,31 @@ import Col from 'react-bootstrap/Col'
 
 //Style
 
-const Task = ({}) =>  {
-    // const [userInput, setUserInput] = useReducer(
-    //     (state, newState) => ({...state, ...newState}),
-    //     {
-    //         title: '',
-    //         description: ''
-    //     }
-    // );
+const Task = ({ addTaskToPipeline }) =>  {
+    const [userInput, setUserInput] = useReducer(
+        (state, newState) => ({...state, ...newState}),
+        {
+            title: '',
+            description: ''
+        }
+    );
 
-    // const onChangeFields = (event) => {
-    //     const name = event.target.name;
-    //     const newValue = event.target.value;
+    const onChangeFields = (event) => {
+        const name = event.target.name;
+        const newValue = event.target.value;
 
-    //     setUserInput({[name]: newValue})
-    // }
+        setUserInput({[name]: newValue})
+    }
 
-    // const addTo = () => {
-    //     const data = userInput;
-    //     const newCard = {
-    //         id: uuid(),
-    //         title: data.title,
-    //         description: data.description 
-    //     }
-    //     addToList(newCard);
-    // }
+    const addTo = () => {
+        const data = userInput;
+        const newTask = {
+            id: uuid(),
+            title: data.title,
+            description: data.description 
+        }
+        addTaskToPipeline(newTask);
+    }
 
     return (
         <div>
@@ -41,7 +41,7 @@ const Task = ({}) =>  {
                         <Form.Control 
                             name="title" 
                             placeholder="enter the title.." 
-                            // onChange={onChangeFields}
+                            onChange={onChangeFields}
                         />
                     </Col>
                 </Form.Row>
@@ -51,12 +51,12 @@ const Task = ({}) =>  {
                         rows="4"
                         name="description"
                         placeholder="enter a description.."
-                        // onChange={onChangeFields}
+                        onChange={onChangeFields}
                     />
                 </Form.Group>
                 <div>
                     <input type="button" name="submit" className="btn btn-info float-right" value="Add to list"
-                    // onClick={ addTo } 
+                    onClick={ addTo } 
 
                     />   
                 </div>
