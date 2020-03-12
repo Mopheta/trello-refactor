@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useState } from 'react'
 import uuid from "uuid";
 
 //Style Components
@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 
 //Style
 
-const Task = ({ addTaskToPipeline }) =>  {
+const Task = ({ addTaskToPipeline, task }) =>  {
     const [userInput, setUserInput] = useReducer(
         (state, newState) => ({...state, ...newState}),
         {
@@ -15,6 +15,7 @@ const Task = ({ addTaskToPipeline }) =>  {
             description: ''
         }
     );
+    const [taskCreation, setTaskCreation] = useState(false);
 
     const onChangeFields = (event) => {
         const name = event.target.name;
@@ -34,7 +35,6 @@ const Task = ({ addTaskToPipeline }) =>  {
     }
 
     return (
-        <div>
             <Form >
                 <Form.Row className="margin_between_inputs">
                     <Col lg>
@@ -52,16 +52,14 @@ const Task = ({ addTaskToPipeline }) =>  {
                         name="description"
                         placeholder="enter a description.."
                         onChange={onChangeFields}
-                    />
+                        
+                    /> 
                 </Form.Group>
-                <div>
-                    <input type="button" name="submit" className="btn btn-info float-right" value="Add to list"
+                <input type="button" name="submit" className="btn btn-info float-right" value="Add new Task"
                     onClick={ addTo } 
-
-                    />   
-                </div>
+                />
+                      
             </Form>    
-        </div>
     )
     
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import uuid from "uuid"
 import CreatePipeline from './CreatePipeline'
 import Pipeline from './Pipeline'
 
@@ -16,20 +17,33 @@ export default class Board extends Component {
     }
     
     addNewPipeline = (pipeline) => {
-        console.log(pipeline)
         const { pipelines } = this.state;
         this.setState({
             pipelines: [...pipelines, pipeline]
         })
+       
     }
 
-    addTaskToPipeline = () => {
-        console.log("hello world2")
+    addTaskToPipelineById = (pipeline) => {
+        const { pipelines } = this.state;
+        const myPipeline = pipelines.find(p => p.id === pipeline.id);
+        // console.log('PIPELINE FILTER: ', myPipeline)
+        // myPipeline.tasks = [...myPipeline.tasks, tasks];
+        // console.log('tasks in pipeline', myPipeline.tasks)
+        
+    }
+
+    deletePipeline = (pipeline) => {
+        const { pipelines } = this.state;
+        const pipelinesAfterDelete = pipelines.filter(p => p.name !== pipeline.name);
+        console.log("sin la que se borra: ", pipelinesAfterDelete)
+        this.setState({
+            pipelines: [...pipelinesAfterDelete]
+        })
     }
 
     render() {
         const { pipelines } = this.state;
-        console.log(pipelines)
         return (
             <div>
                 <div>
@@ -37,7 +51,11 @@ export default class Board extends Component {
                 </div>
                 <div className="flex-container">
                     {
-                        pipelines.map(p => <Pipeline  addTaskToPipeline={this.addTaskToPipeline} pipeline={p}/>)
+                        pipelines.map(p => <Pipeline addTaskToPipelineById={ this.addTaskToPipelineById } 
+                                                     pipeline={ p } 
+                                                     key={ p.id }
+                                                     deletePipeline={ this.deletePipeline }       
+                                            />)
                     }
                 </div>
                 
