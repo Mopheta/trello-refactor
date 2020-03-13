@@ -1,3 +1,9 @@
 .listOfTask {
     margin-top: 30px;
 }
+
+#btn_addNewList{
+    margin-left: 5px;
+    background-color: #0097a7;
+    color: #FFF;
+}

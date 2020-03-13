@@ -9,7 +9,11 @@ import Col from 'react-bootstrap/Col'
 
 //Style
 
-const ListOfTasks = ({ task }) =>  {
+const ListOfTasks = ({ task, updateTask }) =>  {
+
+    const updateTheTask = (task) => {
+        updateTask(task)
+    }
 
     return (
         <div>
@@ -33,9 +37,8 @@ const ListOfTasks = ({ task }) =>  {
                     />
                 </Form.Group>
                 <Form.Group>
-                    <TaskModalEdit task={ task }/>
-
-                </Form.Group>
+                    <TaskModalEdit task={ task } updateTheTask={ updateTheTask }/>
+                </Form.Group>  
             </Form>    
         </div>
     )

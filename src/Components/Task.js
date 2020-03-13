@@ -1,5 +1,8 @@
-import React, { useReducer, useState } from 'react'
+import React, { useReducer } from 'react'
 import uuid from "uuid";
+
+//Components
+
 
 //Style Components
 import Form from 'react-bootstrap/Form'
@@ -15,7 +18,6 @@ const Task = ({ addTaskToPipeline, task }) =>  {
             description: ''
         }
     );
-    const [taskCreation, setTaskCreation] = useState(false);
 
     const onChangeFields = (event) => {
         const name = event.target.name;
@@ -33,6 +35,15 @@ const Task = ({ addTaskToPipeline, task }) =>  {
         }
         addTaskToPipeline(newTask);
     }
+
+    // const updateTask = (task) => {
+    //     const newTask = {
+    //         id: task.id,
+    //         title: task.title,
+    //         description: task.description 
+    //     }
+    //     setUserInput(newTask)
+    // }
 
     return (
             <Form >
@@ -58,7 +69,7 @@ const Task = ({ addTaskToPipeline, task }) =>  {
                 <input type="button" name="submit" className="btn btn-info float-right" value="Add new Task"
                     onClick={ addTo } 
                 />
-                      
+     
             </Form>    
     )
     

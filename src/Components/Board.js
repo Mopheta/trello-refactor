@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import uuid from "uuid"
+
+//Components
+import Header from './Header'
 import CreatePipeline from './CreatePipeline'
 import Pipeline from './Pipeline'
-
 
 //Styles
 import '../Styles/Board.css'
@@ -25,8 +26,8 @@ export default class Board extends Component {
     }
 
     addTaskToPipelineById = (pipeline) => {
-        const { pipelines } = this.state;
-        const myPipeline = pipelines.find(p => p.id === pipeline.id);
+        // const { pipelines } = this.state;
+        // const myPipeline = pipelines.find(p => p.id === pipeline.id);
         // console.log('PIPELINE FILTER: ', myPipeline)
         // myPipeline.tasks = [...myPipeline.tasks, tasks];
         // console.log('tasks in pipeline', myPipeline.tasks)
@@ -47,9 +48,12 @@ export default class Board extends Component {
         return (
             <div>
                 <div>
+                    <Header />
+                </div>
+                <div>
                     <CreatePipeline addPipeline={ this.addNewPipeline } />
                 </div>
-                <div className="flex-container">
+                <div className="flex-container board_pipeline">
                     {
                         pipelines.map(p => <Pipeline addTaskToPipelineById={ this.addTaskToPipelineById } 
                                                      pipeline={ p } 

@@ -9,10 +9,12 @@ import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 
 //Style
-import '../styles/TaskModalEdit.css'
+import '../Styles/TaskModalEdit.css'
 
-const TaskModalEdit = ({ task }) =>  {
-    const { id, title, description } = task;
+const TaskModalEdit = ({ task, updateTheTask }) =>  {
+
+    const { title, description } = task; //to set the value on the fields
+
     let [modalIsOpen, setModalIsOpen] = useState(false);
 
     const [userInput, setUserInput] = useReducer(
@@ -31,19 +33,22 @@ const TaskModalEdit = ({ task }) =>  {
         : task.description = value;
       };
 
-    const addTo = () => {
-        const data = {userInput};
-        const newCard = {
+    const update = () => {
+        //debugger;
+        const data = { userInput };
+        const { title, description } = data.userInput
+
+        const updatedTask = {
             id: task.id,
-            title: data.title,
-            description: data.description 
+            title: title,
+            description: description 
         }
-       // updateTask(newCard);
+        console.log('con update', updatedTask)
+        updateTheTask(updatedTask);
     }
 
     const cancelChanges = () => {
-        // const data = userInputBackUp;
-        // setUserInput(data);
+        
     }
 
     return (
@@ -70,7 +75,7 @@ const TaskModalEdit = ({ task }) =>  {
                             />
                         </Col>
                     </Form.Row>
-                    <Form.Row controlId="exampleForm.ControlTextarea1">
+                    <Form.Row >
                         <Col md>
                             <Form.Control 
                                 id="input_modal_desc"
@@ -87,13 +92,14 @@ const TaskModalEdit = ({ task }) =>  {
                     <div className="">
                         <input type="button" name="submit" className="btn btn-info btn-md" value="Update"
                         onClick={ () => {
-                            addTo();
+                            update();
                             setModalIsOpen(false);
                             }} />   
 
                         <input type="button" name="" className="btn dark btn-md" value="Cancel"
                         onClick={ () => {
                             cancelChanges();
+                            //handleCancelClick();
                             setModalIsOpen(false);
                         }} />   
                     </div>
