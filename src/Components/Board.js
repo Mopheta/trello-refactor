@@ -36,7 +36,7 @@ export default class Board extends Component {
 
     deletePipeline = (pipeline) => {
         const { pipelines } = this.state;
-        const pipelinesAfterDelete = pipelines.filter(p => p.name !== pipeline.name);
+        const pipelinesAfterDelete = pipelines.filter(p => p.id !== pipeline.id);
         console.log("sin la que se borra: ", pipelinesAfterDelete)
         this.setState({
             pipelines: [...pipelinesAfterDelete]

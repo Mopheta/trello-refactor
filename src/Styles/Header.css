@@ -1,10 +1,18 @@
 .header_form{
     width: 500;
-    margin-left: 20px;
-    margin-top: 15px;
+    height: 5vw;
+    padding: 15px;
+    background-color: #FFF;
+    border: solid 1px dodgerblue;
 }
 
 .board_name{
-    width: 300;
+    width: 300px;
     margin-left: 8px;
+    background-color: #FFF;
+
+}
+
+.boardIcon{
+    background-color: red;
 }

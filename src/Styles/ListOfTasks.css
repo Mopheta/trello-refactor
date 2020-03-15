@@ -1,0 +1,6 @@
+.list_of_tasks{
+    border: solid 2px dodgerblue;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: gray;
+}

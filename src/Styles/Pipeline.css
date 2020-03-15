@@ -1,9 +1,27 @@
-.listOfTask {
-    margin-top: 30px;
+.list_of_task {
+    margin-top: 10px;
+    width: 250px;
+    padding: 0 5px;
 }
 
 #btn_addNewList{
     margin-left: 5px;
     background-color: #0097a7;
     color: #FFF;
+}
+
+.pipeline_style{
+    margin-left: 15px;
+    border: solid 2px rgb(145, 143, 143);
+}
+
+.pipeline_title{
+    text-align: center;
+    padding: 10px;
+    background-color: rgb(148, 148, 148);
+    color: white;
+}
+
+#delete_pipeline{
+    margin-left: 15px;
 }

@@ -24,35 +24,30 @@ const CreatePipeline = ({ addPipeline }) => {
             tasks: []
         }
         addPipeline(newPipeline);
+        setPipelineName('');
     }
 
     return(
         <div className="create_pipeline_div">
-            <div>
-                {/* <input id="input_title"
-                type="text"
-                aria-describedby="basic-addon1" 
-                className="" 
-                placeholder="Enter pipeline title.." 
-                onChange={ handleOnChangeEvent }                                    
-                /> */}                
+            <div>             
                 <TextField 
                     id="input_title" 
                     placeholder="Enter pipeline title.." 
                     variant="outlined"
+                    value={pipelineName}
                     onChange={ handleOnChangeEvent }           
                 />
-                <Button 
+                {
+                    pipelineName.length > 0 &&
+                    <Button 
                     id="btn_addNewList" 
                     className="btn btn-info"
                     variant="contained"  
                     onClick={ createNewPipeline } 
-                >
-                    New Pipeline
-                </Button>
-            </div>
-            <div>
-
+                    >
+                        New Pipeline
+                    </Button>
+                    }
             </div>
         </div>
     )

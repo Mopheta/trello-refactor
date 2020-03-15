@@ -1,7 +1,4 @@
-.btn_Edit{
-    border: none !important;
-    color: red !important;
-}
+
 
 .btn_Edit:hover{
     background-color: DodgerBlue;

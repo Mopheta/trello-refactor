@@ -36,15 +36,6 @@ const Task = ({ addTaskToPipeline, task }) =>  {
         addTaskToPipeline(newTask);
     }
 
-    // const updateTask = (task) => {
-    //     const newTask = {
-    //         id: task.id,
-    //         title: task.title,
-    //         description: task.description 
-    //     }
-    //     setUserInput(newTask)
-    // }
-
     return (
             <Form >
                 <Form.Row className="margin_between_inputs">
@@ -66,7 +57,7 @@ const Task = ({ addTaskToPipeline, task }) =>  {
                         
                     /> 
                 </Form.Group>
-                <input type="button" name="submit" className="btn btn-info float-right" value="Add new Task"
+                <input type="button" name="submit" className="btn btn-info" value="Add new Task"
                     onClick={ addTo } 
                 />
      

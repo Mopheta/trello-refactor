@@ -2,7 +2,6 @@ import React, { useState, useReducer } from 'react'
 
 //Components
 
-
 //Style Components
 import Modal from 'react-modal'
 import Form from 'react-bootstrap/Form'
@@ -45,6 +44,7 @@ const TaskModalEdit = ({ task, updateTheTask }) =>  {
         }
         console.log('con update', updatedTask)
         updateTheTask(updatedTask);
+        setModalIsOpen(false);
     }
 
     const cancelChanges = () => {
@@ -62,7 +62,7 @@ const TaskModalEdit = ({ task, updateTheTask }) =>  {
                 ariaHideApp={false}
                 shouldCloseOnOverlayClick={false}
             >
-                <Form >
+                <Form onSubmit={ update }>
                     <Form.Row>
                         <Col md>
                             <Form.Control
@@ -90,12 +90,12 @@ const TaskModalEdit = ({ task, updateTheTask }) =>  {
                         </Col>
                     </Form.Row>
                     <div className="">
-                        <input type="button" name="submit" className="btn btn-info btn-md" value="Update"
-                        onClick={ () => {
-                            update();
-                            setModalIsOpen(false);
-                            }} />   
-
+                        <input type="submit" name="submit" className="btn btn-info btn-md" value="Save"
+                        // onClick={ () => {
+                        //     update();
+                        //     setModalIsOpen(false);
+                        //     }}
+                        />   
                         <input type="button" name="" className="btn dark btn-md" value="Cancel"
                         onClick={ () => {
                             cancelChanges();

@@ -14,7 +14,7 @@ const Header = () =>  {
     return (
         <div>
             <form className="header_form">
-                <TableChartIcon style={{ fontSize: 40, marginRight: 10 }}/>
+                <TableChartIcon className="boardIcon" style={{ fontSize: 50, marginRight: 10 }}/>
                 <TextField 
                     id="standard-basic"
                     className="board_name" 

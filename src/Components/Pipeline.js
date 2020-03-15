@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Task from './Task'
 import ListOfTasks from './ListOfTasks'
 
+//Component Style
+
 //Style
 import '../Styles/Pipeline.css'
 
@@ -23,21 +25,19 @@ const Pipeline = ({ pipeline, deletePipeline }) => {
     }
 
     const updateTask = (task) => {
-        debugger
-        //const updatedTask = tasks.find(t => t.id === task.id);
-       // const removeTheTask = tasks.filter(t => t.id !== task.id);
-        setTasks([...tasks]);
+        const removeTheTask = tasks.filter(t => t.id !== task.id);
+        setTasks([...removeTheTask, task]);
         
     }
 
 
     return(     
-        <div>
-            <div>
-                <h3>{ pipeline.name }</h3>
-                <input type="button" value="Delete" onClick={removePipeline} />
+        <div className="pipeline_style">
+            <div >
+                <h3 className="pipeline_title">{ pipeline.name }</h3>
+                <input type="button" id="delete_pipeline" className="btn btn-outline-danger" value="Delete pipeline" onClick={removePipeline} />
             </div>
-            <div className="listOfTask">
+            <div className="list_of_task">
                 {
                     tasks.length > 0 &&
                     tasks.map(t => <ListOfTasks task={t} key={t.id} updateTask={ updateTask }/>)
