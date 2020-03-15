@@ -120,7 +120,12 @@ export default class ClassTaskModal extends Component {
                             </Col>
                         </Form.Row>
                         <div className="">
-                            <input type="submit" name="submit" className="btn btn-info btn-md" value="Save"
+                            <input 
+                                type="submit" 
+                                name="submit" 
+                                className="btn btn-info btn-md" 
+                                value="Save"
+                            />
                             <input
                                 type="button"
                                 className="btn dark btn-md"
