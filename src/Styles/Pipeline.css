@@ -11,8 +11,9 @@
 }
 
 .pipeline_style{
-    margin-left: 15px;
+    margin-right: 15px;
     border: solid 2px rgb(145, 143, 143);
+    border-radius: 10px;
 }
 
 .pipeline_title{
@@ -22,6 +23,10 @@
     color: white;
 }
 
-#delete_pipeline{
-    margin-left: 15px;
+.btn_add_task{
+    margin: 5px;
+}
+
+.btn_delete_pipeline{
+    margin: 5px;
 }

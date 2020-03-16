@@ -35,7 +35,7 @@ const Pipeline = ({ pipeline, deletePipeline }) => {
         <div className="pipeline_style">
             <div >
                 <h3 className="pipeline_title">{ pipeline.name }</h3>
-                <input type="button" id="delete_pipeline" className="btn btn-outline-danger" value="Delete pipeline" onClick={removePipeline} />
+                <input type="button" className="btn btn-outline-danger btn_delete_pipeline" value="Delete pipeline" onClick={removePipeline} />
             </div>
             <div className="list_of_task">
                 {
@@ -47,7 +47,7 @@ const Pipeline = ({ pipeline, deletePipeline }) => {
                 
                 {
                     !showTaskCreation &&
-                    <input type="button" className="btn btn-info" value="Add task" onClick={ taskCreation } />
+                    <input type="button" className="btn btn-info btn_add_task" value="Add task" onClick={ taskCreation } />
                 }
             </div>
             <div>
