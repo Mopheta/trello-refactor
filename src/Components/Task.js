@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col'
 
 //Style
+import '../Styles/Task.css'
 
 const Task = ({ addTaskToPipeline, task }) =>  {
     const [userInput, setUserInput] = useReducer(
@@ -26,7 +27,7 @@ const Task = ({ addTaskToPipeline, task }) =>  {
         setUserInput({[name]: newValue})
     }
 
-    const addTo = () => {
+    const saveTask = () => {
         const data = userInput;
         const newTask = {
             id: uuid(),
@@ -34,6 +35,10 @@ const Task = ({ addTaskToPipeline, task }) =>  {
             description: data.description 
         }
         addTaskToPipeline(newTask);
+    }
+
+    const deleteTask = () => {
+        
     }
 
     return (
@@ -57,10 +62,9 @@ const Task = ({ addTaskToPipeline, task }) =>  {
                         
                     /> 
                 </Form.Group>
-                <input type="button" name="submit" className="btn btn-info" value="Add new Task"
-                    onClick={ addTo } 
+                <input type="button" name="submit" className="btn btn-info btn_save" value="Save"
+                    onClick={ saveTask } 
                 />
-     
             </Form>    
     )
     

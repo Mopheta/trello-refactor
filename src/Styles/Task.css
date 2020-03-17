@@ -1,3 +1,10 @@
 .btn_add_task{
     margin-left: 15px;
 }
+.btn_save {
+    margin: 5px;
+}
+
+.btn_delete {
+    border: none !important;
+}

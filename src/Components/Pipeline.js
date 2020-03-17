@@ -30,6 +30,10 @@ const Pipeline = ({ pipeline, deletePipeline }) => {
         
     }
 
+    const removeTask = (task) => {
+        const tasksInPipeline = tasks.filter(t => t.id !== task.id);
+        setTasks([...tasksInPipeline]);
+    }
 
     return(     
         <div className="pipeline_style">
@@ -40,14 +44,19 @@ const Pipeline = ({ pipeline, deletePipeline }) => {
             <div className="list_of_task">
                 {
                     tasks.length > 0 &&
-                    tasks.map(t => <ListOfTasks task={t} key={t.id} updateTask={ updateTask }/>)
+                    tasks.map(task => <ListOfTasks 
+                                        task={task} 
+                                        key={task.id} 
+                                        updateTask={ updateTask }
+                                        removeTask={ removeTask }
+                                    />)
                 }
             </div>
             <div>
                 
                 {
                     !showTaskCreation &&
-                    <input type="button" className="btn btn-info btn_add_task" value="Add task" onClick={ taskCreation } />
+                    <input type="button" className="btn btn-info btn_add_task" value="Add new task" onClick={ taskCreation } />
                 }
             </div>
             <div>

@@ -59,7 +59,7 @@ export default class ClassTaskModal extends Component {
     }
 
     cancelChanges = () => {
-        const { updateTheTask, task } = this.props;
+        const { task } = this.props;
         const { originalTitle, originalDescription } = this.state;
 
         this.setState({
@@ -67,12 +67,14 @@ export default class ClassTaskModal extends Component {
             title: originalTitle,
             description: originalDescription
         })
-
-        // updateTheTask(updatedTask);
-
         this.setState({
             modalIsOpen: false
         })
+    }
+
+    deleteTask = () => {
+        const { task, removeTheTask } = this.props;
+        removeTheTask(task)
     }
 
     render() {
@@ -80,7 +82,10 @@ export default class ClassTaskModal extends Component {
 
         return (
             <div>
-                <input type="button" className="btn btn-outline-warning" onClick={() => this.setState({modalIsOpen: true})} value="Edit task"/>
+                <input type="button" className="btn btn_edit" onClick={() => this.setState({modalIsOpen: true})} value="Edit"/>
+                <input type="button" className="btn btn-outline-danger btn_delete" value="Delete"
+                    onClick={ this.deleteTask } 
+                />
                 <Modal
                     size="sm"
                     className="taskModalStyle"
