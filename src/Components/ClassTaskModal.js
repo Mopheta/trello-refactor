@@ -37,7 +37,7 @@ export default class ClassTaskModal extends Component {
     saveChanges = (event) => {
         event.preventDefault();
         const { updateTheTask, task } = this.props;
-        const { title, description } = this.state;
+        const { title, description, originalTitle, originalDescription } = this.state;
 
         const updatedTask = {
             id: task.id,
@@ -48,8 +48,11 @@ export default class ClassTaskModal extends Component {
         this.setState({
             id: task.id,
             title: title,
-            description: description
+            description: description,
+            originalTitle: title,
+            originalDescription: description
         })
+        
         updateTheTask(updatedTask);
 
         this.setState({
